@@ -1,3 +1,7 @@
+
+Linking aquarium to the docker image of your proxy, luminati-proxy used in this example : https://github.com/luminati-io/luminati-proxy
+========
+
 Aquarium
 ========
 
