@@ -21,7 +21,6 @@ services:
             {%- for i in range(num_splashes) %}
             - splash{{i}}
             {%- endfor %}
-            - luminati #your proxy name here
         volumes:
             - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
 
@@ -39,7 +38,6 @@ services:
         {%- if tor %}
         links:
             - tor
-            - luminati
         volumes:
             - ./proxy-profiles:/etc/splash/proxy-profiles:ro
             - ./filters:/etc/splash/filters:ro
@@ -58,15 +56,3 @@ services:
         restart: always
 
     {% endif %}
-
-    luminati: #your proxy name
-        image: luminati/luminati-proxy
-        ports:
-            # ports that your proxy listens to
-            - "24000:24000"
-            # ports that your proxy listen to
-            - "22999:22999"
-        logging:
-            driver: "none"
-        restart: always
-
